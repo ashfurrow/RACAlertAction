@@ -9,15 +9,15 @@ static void *RACAlertActionEnabledDisposableKey = &RACAlertActionEnabledDisposab
 
 + (instancetype)actionWithTitle:(NSString *)title style:(UIAlertActionStyle)style {
     return [super actionWithTitle:title style:style handler:^(UIAlertAction *action) {
-        [((RACAlertAction *)action).rac_command execute:action];
+        [((RACAlertAction *)action).command execute:action];
     }];
 }
 
-- (RACCommand *)rac_command {
+- (RACCommand *)command {
     return objc_getAssociatedObject(self, RACAlertActionCommandKey);
 }
 
-- (void)setRac_command:(RACCommand *)command {
+- (void)setCommand:(RACCommand *)command {
     objc_setAssociatedObject(self, RACAlertActionCommandKey, command, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     // Check for stored signal in order to remove it and add a new one

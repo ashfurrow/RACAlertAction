@@ -10,6 +10,6 @@
 /// Sets the actions's command. When the action is invoked, the command is
 /// executed with the self. The button's enabledness is bound to the
 /// command's `enabled`.
-@property (nonatomic, strong) RACCommand *rac_command;
+@property (nonatomic, strong) RACCommand *command;
 
 @end

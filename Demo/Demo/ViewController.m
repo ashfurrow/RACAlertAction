@@ -28,7 +28,7 @@
     [alertController addAction:alertAction];
     
     @weakify(alertAction);
-    alertAction.rac_command = [[RACCommand alloc] initWithEnabled:delayedEnabledSignal signalBlock:^RACSignal *(id input) {
+    alertAction.command = [[RACCommand alloc] initWithEnabled:delayedEnabledSignal signalBlock:^RACSignal *(id input) {
         @strongify(alertAction);
         assert(input == alertAction);
         return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
