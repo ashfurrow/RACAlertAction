@@ -1,5 +1,5 @@
 # RACAlertAction
-UIAlertAction subclass with support for ReactiveCocoa
+UIAlertAction subclass with support for ReactiveCocoa.
 
 ## Purpose
 
