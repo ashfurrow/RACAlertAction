@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.author             = { "Ash Furrow" => "ash@ashfurrow.com" }
   s.social_media_url   = "http://twitter.com/ashfurrow"
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/ashfurrow/RACAlertAction.git", :commit => "5b9e5f4c146318fea838c467944b2e14289a73f0" }
+  s.source       = { :git => "https://github.com/ashfurrow/RACAlertAction.git", :tag => s.version }
   s.source_files  = "RACAlertAction.{h,m}"
   s.framework  = "Foundation", "UIKit"
   s.requires_arc = true
