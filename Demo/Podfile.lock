@@ -1,0 +1,23 @@
+PODS:
+  - RACAlertAction (0.0.1):
+    - ReactiveCocoa (~> 2.4.7)
+  - ReactiveCocoa (2.4.7):
+    - ReactiveCocoa/UI (= 2.4.7)
+  - ReactiveCocoa/Core (2.4.7):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.4.7)
+  - ReactiveCocoa/UI (2.4.7):
+    - ReactiveCocoa/Core
+
+DEPENDENCIES:
+  - RACAlertAction (from `../`)
+
+EXTERNAL SOURCES:
+  RACAlertAction:
+    :path: ../
+
+SPEC CHECKSUMS:
+  RACAlertAction: 202933db686210bbcef9e175bc4bc283fc2e1c8e
+  ReactiveCocoa: 313fc53cc9aeb2bbbc3f5f13c7eac16478d9af8f
+
+COCOAPODS: 0.36.0.beta.2
