@@ -29,10 +29,10 @@ Usage is pretty straightforward.
 UIAlertController *alertController = ... // Set up your controller as you would normally.
 
 // Create, then add the action
-RACAlertAction *alertAction = [RACAlertAction actionWithTitle:@"Title" style:UIAlertActionStyleDefault];
+RACAlertAction *alertAction = [RACAlertAction actionWithTitle:/* your title */ style:/* whatever style */];
 [alertController addAction:alertAction];
 
-alertAction.rac_command = // Whatever RACCommand that represents your unit of work.
+alertAction.rac_command = ... // Whatever RACCommand that represents your unit of work.
 ```
 
 The action's `enabled` property will be automatically bound to the `enabled` signal of its `rac_command`. 
