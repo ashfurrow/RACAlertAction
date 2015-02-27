@@ -3,7 +3,7 @@
 
 @interface RACAlertAction ()
 
-@property (nonatomic, strong) RACDisposable *enabledDispsable;
+@property (nonatomic, strong) RACDisposable *enabledDisposable;
 
 @end
 
@@ -19,11 +19,11 @@
     _command = command;
     
     // Check for stored signal in order to remove it and add a new one
-    [self.enabledDispsable dispose], self.enabledDispsable = nil;
+    [self.enabledDisposable dispose], self.enabledDisposable = nil;
     
     if (command == nil) return;
     
-    self.enabledDispsable = [command.enabled setKeyPath:@keypath(self, enabled) onObject:self];
+    self.enabledDisposable = [command.enabled setKeyPath:@keypath(self, enabled) onObject:self];
 }
 
 @end
