@@ -1,9 +1,11 @@
 #import "RACAlertAction.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import <objc/runtime.h>
 
-static void *RACAlertActionCommandKey = &RACAlertActionCommandKey;
-static void *RACAlertActionEnabledDisposableKey = &RACAlertActionEnabledDisposableKey;
+@interface RACAlertAction ()
+
+@property (nonatomic, strong) RACDisposable *enabledDispsable;
+
+@end
 
 @implementation RACAlertAction
 
@@ -13,21 +15,15 @@ static void *RACAlertActionEnabledDisposableKey = &RACAlertActionEnabledDisposab
     }];
 }
 
-- (RACCommand *)command {
-    return objc_getAssociatedObject(self, RACAlertActionCommandKey);
-}
-
 - (void)setCommand:(RACCommand *)command {
-    objc_setAssociatedObject(self, RACAlertActionCommandKey, command, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    _command = command;
     
     // Check for stored signal in order to remove it and add a new one
-    RACDisposable *disposable = objc_getAssociatedObject(self, RACAlertActionEnabledDisposableKey);
-    [disposable dispose];
+    [self.enabledDispsable dispose], self.enabledDispsable = nil;
     
     if (command == nil) return;
     
-    disposable = [command.enabled setKeyPath:@keypath(self, enabled) onObject:self];
-    objc_setAssociatedObject(self, RACAlertActionEnabledDisposableKey, disposable, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.enabledDispsable = [command.enabled setKeyPath:@keypath(self, enabled) onObject:self];
 }
 
 @end
